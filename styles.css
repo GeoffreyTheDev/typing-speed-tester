@@ -369,3 +369,40 @@ body.animated-bg #bg-canvas {
         padding: 1rem;
     }
 }
+/* Custom Stop Button Styling */
+.stop-btn:not(:disabled):hover {
+    border-color: var(--incorrect-char);
+    color: var(--incorrect-char);
+    background: rgba(255, 77, 77, 0.05);
+}
+
+/* Developer Footer Styling */
+.app-footer {
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0 2rem 0;
+    margin-top: auto;
+}
+
+.github-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+
+.github-link:hover {
+    color: var(--text-primary);
+    background: var(--card-bg);
+    transform: translateY(-3px);
+}
+
+.github-link i {
+    font-size: 1.3rem;
+}

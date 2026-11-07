@@ -16,7 +16,7 @@
 
     <header class="app-header">
         <div class="brand">
-            <img src="favicon.png" alt="TypeRush Logo" class="logo">
+            <img src="favicon.png" alt="TypeRush Logo" class="logo" width="38" height="38">
             <span>TypeRush</span>
         </div>
         <div class="controls-panel">
@@ -84,11 +84,21 @@
 
         <!-- Under Window Controls -->
         <div class="action-footer">
+            <button id="stop-btn" class="secondary-btn stop-btn" disabled>
+                <i class="fa-solid fa-stop"></i> Stop Test
+            </button>
             <button id="restart-btn" class="secondary-btn" disabled>
                 <i class="fa-solid fa-arrow-rotate-right"></i> Restart Match
             </button>
         </div>
     </main>
+
+    <!-- Developer Footer -->
+    <footer class="app-footer">
+        <a href="https://github.com/GeoffreyTheDev" target="_blank" rel="noopener noreferrer" class="github-link">
+            <i class="fa-brands fa-github"></i> Developed by GeoffreyTheDev
+        </a>
+    </footer>
 
     <script src="script.js"></script>
 </body>

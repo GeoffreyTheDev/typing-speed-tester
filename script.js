@@ -7,6 +7,7 @@ const accuracyElement = document.getElementById('accuracy');
 const startOverlay = document.getElementById('start-overlay');
 const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
+const stopBtn = document.getElementById('stop-btn');
 const themeToggle = document.getElementById('theme-toggle');
 const bgToggle = document.getElementById('bg-toggle');
 
@@ -88,6 +89,7 @@ bgToggle.addEventListener('click', () => {
 async function startGame() {
     startOverlay.classList.add('hidden');
     restartBtn.disabled = false;
+    stopBtn.disabled = false;
     quoteInputElement.disabled = false;
     quoteInputElement.value = "";
     quoteInputElement.focus();
@@ -104,6 +106,7 @@ function resetStats() {
     wpmElement.innerText = 0;
     accuracyElement.innerText = 100;
     isGameActive = false;
+    stopBtn.disabled = true;
 }
 
 // Core Character Split & Rendering 
@@ -197,9 +200,22 @@ function completeTest() {
     clearInterval(timerInterval);
     isGameActive = false;
     quoteInputElement.disabled = true;
+    stopBtn.disabled = true;
     
     // Add success feedback animations 
     quoteDisplayElement.innerHTML += `<div class="completed-banner" style="color:var(--correct-char); font-weight:bold; margin-top:1.5rem; animation: pulseGlow 1.5s infinite;"><i class="fa-solid fa-circle-check"></i> Test Completed Successfully!</div>`;
+}
+
+// Manual Stop Trigger
+function stopTest() {
+    if (!isGameActive) return;
+    
+    clearInterval(timerInterval);
+    isGameActive = false;
+    quoteInputElement.disabled = true;
+    stopBtn.disabled = true;
+    
+    quoteDisplayElement.innerHTML += `<div class="completed-banner" style="color:var(--text-secondary); font-weight:bold; margin-top:1.5rem;"><i class="fa-solid fa-circle-exclamation"></i> Test Stopped.</div>`;
 }
 
 // Reset triggers
@@ -209,6 +225,7 @@ async function restartGame() {
     startTime = new Date();
     isGameActive = true;
     quoteInputElement.disabled = false;
+    stopBtn.disabled = false;
     quoteInputElement.value = "";
     quoteInputElement.focus();
     startTimer();
@@ -225,6 +242,7 @@ themeToggle.addEventListener('click', () => {
 // Event Triggers Configuration
 startBtn.addEventListener('click', startGame);
 restartBtn.addEventListener('click', restartGame);
+stopBtn.addEventListener('click', stopTest);
 
 // Initial triggers
 initParticles();
