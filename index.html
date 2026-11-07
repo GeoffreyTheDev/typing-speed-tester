@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Speed Tester | GeoffreyTheDev</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Typing Speed Tester</h1>
+        
+        <div class="stats-board">
+            <div class="stat">WPM: <span id="wpm">0</span></div>
+            <div class="stat">Accuracy: <span id="accuracy">100</span>%</div>
+            <div class="stat">Time: <span id="time">0</span>s</div>
+        </div>
+
+        <div class="quote-display" id="quote-display">
+            <!-- JavaScript will inject characters here as individual span tags -->
+        </div>
+
+        <textarea id="quote-input" class="quote-input" placeholder="Start typing here..." autofocus></textarea>
+        
+        <button id="restart-btn" class="restart-btn">Restart Test</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

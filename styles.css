@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #1e1e1e;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 800px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #4da6ff;
+}
+
+.stats-board {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.quote-display {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: #888;
+    user-select: none;
+}
+
+/* Dynamic classes for JavaScript */
+.correct { color: #4caf50; }
+.incorrect { 
+    color: #f44336; 
+    text-decoration: underline; 
+}
+
+.quote-input {
+    width: 100%;
+    height: 150px;
+    background-color: #2d2d2d;
+    color: #fff;
+    border: 2px solid #4da6ff;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 1.2rem;
+    resize: none;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.quote-input:focus {
+    border-color: #4caf50;
+}
+
+.restart-btn {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: #4da6ff;
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.restart-btn:hover {
+    background-color: #3388dd;
+}
