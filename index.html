@@ -1,29 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typing Speed Tester | GeoffreyTheDev</title>
+    <title>⚡ TypeRush | Speed & Accuracy Tester</title>
+    <!-- Use image_1.png here as the icon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="container">
-        <h1>Typing Speed Tester</h1>
-        
-        <div class="stats-board">
-            <div class="stat">WPM: <span id="wpm">0</span></div>
-            <div class="stat">Accuracy: <span id="accuracy">100</span>%</div>
-            <div class="stat">Time: <span id="time">0</span>s</div>
-        </div>
+<body class="animated-bg">
+    <!-- Moving background Canvas overlay -->
+    <canvas id="bg-canvas"></canvas>
 
-        <div class="quote-display" id="quote-display">
-            <!-- JavaScript will inject characters here as individual span tags -->
+    <header class="app-header">
+        <div class="brand">
+            <img src="favicon.png" alt="TypeRush Logo" class="logo">
+            <span>TypeRush</span>
         </div>
+        <div class="controls-panel">
+            <!-- BG Animation Toggle -->
+            <button id="bg-toggle" class="icon-btn" title="Toggle Animated Background">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+            </button>
+            <!-- Light/Dark Mode Toggle -->
+            <button id="theme-toggle" class="icon-btn" title="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
 
-        <textarea id="quote-input" class="quote-input" placeholder="Start typing here..." autofocus></textarea>
-        
-        <button id="restart-btn" class="restart-btn">Restart Test</button>
-    </div>
+    <main class="container">
+        <!-- Dashboard Statistics -->
+        <section class="stats-board">
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                <div class="stat-content">
+                    <span class="stat-label">WPM</span>
+                    <span id="wpm" class="stat-value">0</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-bullseye"></i></div>
+                <div class="stat-content">
+                    <span class="stat-label">Accuracy</span>
+                    <span class="stat-value"><span id="accuracy">100</span>%</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                <div class="stat-content">
+                    <span class="stat-label">Time</span>
+                    <span class="stat-value"><span id="time">0</span>s</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typing Gameplay Window -->
+        <section class="game-window">
+            <div id="start-overlay" class="overlay">
+                <div class="overlay-content">
+                    <h2>Ready to test your speed?</h2>
+                    <p>Press the button below to fetch a quote and start the timer!</p>
+                    <button id="start-btn" class="primary-btn pulse-animation">
+                        <i class="fa-solid fa-play"></i> Start typing test
+                    </button>
+                </div>
+            </div>
+
+            <!-- Focus indicator and cursor helper -->
+            <div class="quote-container">
+                <div id="quote-display" class="quote-display">
+                    <!-- Javascript spans injected here -->
+                </div>
+            </div>
+
+            <div class="input-area">
+                <textarea id="quote-input" class="quote-input" placeholder="The test has not started. Click 'Start test'..." disabled></textarea>
+                <div class="focus-warning">Click text area to focus</div>
+            </div>
+        </section>
+
+        <!-- Under Window Controls -->
+        <div class="action-footer">
+            <button id="restart-btn" class="secondary-btn" disabled>
+                <i class="fa-solid fa-arrow-rotate-right"></i> Restart Match
+            </button>
+        </div>
+    </main>
 
     <script src="script.js"></script>
 </body>
